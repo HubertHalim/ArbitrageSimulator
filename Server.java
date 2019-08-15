@@ -2,6 +2,8 @@
 // A Java program for a Server 
 import java.net.*; 
 import java.io.*; 
+import java.util.*;
+import java.util.concurrent.*;
   
 public class Server 
 { 
@@ -9,6 +11,7 @@ public class Server
     private Socket          socket   = null; 
     private ServerSocket    server   = null; 
     private DataInputStream in       =  null; 
+    private DataOutputStream out = null;
   
     // constructor with port 
     public Server(int port) 
@@ -27,6 +30,7 @@ public class Server
             // takes input from the client socket 
             in = new DataInputStream( 
                 new BufferedInputStream(socket.getInputStream())); 
+            out = new DataOutputStream(socket.getOutputStream()); 
   
             String line = ""; 
   
@@ -35,9 +39,11 @@ public class Server
             { 
                 try
                 { 
-                    line = in.readUTF(); 
-                    System.out.println(line); 
-  
+                    line = in.readLine();
+                    // line = Base64.getEncoder().encodeToString(data);
+                    System.out.println(line);
+                    byte[] message = "hola\r\n".getBytes(); 
+                    out.write(message);
                 } 
                 catch(IOException i) 
                 { 

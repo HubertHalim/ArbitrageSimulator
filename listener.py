@@ -1,4 +1,5 @@
 from socket import *
+import threading
 
 serverPort = 12000
 serverSocket = socket(AF_INET,SOCK_STREAM)
@@ -13,7 +14,7 @@ def handle_client_connection(client_socket):
     client_socket.close()
 
 while True:
-    client_sock, address = server.accept()
+    client_sock, address = serverSocket.accept()
     print 'Accepted connection from {}:{}'.format(address[0], address[1])
     client_handler = threading.Thread(
         target=handle_client_connection,

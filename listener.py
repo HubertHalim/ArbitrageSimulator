@@ -9,7 +9,7 @@ print('The server is ready to receive')
 
 def handle_client_connection(client_socket):
     request = client_socket.recv(1024)
-    print 'Received {}'.format(request)
+    print('Received {}'.format(request))
     client_socket.send('ACK!')
     client_socket.close()
 

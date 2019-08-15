@@ -1,0 +1,158 @@
+package thomas;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class compiler extends Data {
+
+	compiler(String timeStamp, double buy, double sell) {
+		super(timeStamp, buy, sell);
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+
+		List<Data> bloomberg = new ArrayList<>();
+		bloomberg.add(new Data("000000", 1.233, 1.119));
+		bloomberg.add(new Data("000001", 1.240, 1.120));
+		bloomberg.add(new Data("000002", 1.250, 1.118));
+		bloomberg.add(new Data("000003", 1.260, 1.117));
+		bloomberg.add(new Data("000004", 1.270, 1.116));
+
+		double bloomb = bloomberg.get(0).buy;
+		double bloomb1 = bloomberg.get(1).buy;
+		double bloomb2 = bloomberg.get(2).buy;
+		double bloomb3 = bloomberg.get(3).buy;
+		double bloomb4 = bloomberg.get(4).buy;
+
+		double blooms = bloomberg.get(0).sell;
+		double blooms1 = bloomberg.get(1).sell;
+		double blooms2 = bloomberg.get(2).sell;
+		double blooms3 = bloomberg.get(3).sell;
+		double blooms4 = bloomberg.get(4).sell;
+
+		double lowestbuy = bloomb;
+		for (double i = 0; i < bloomberg.size(); i++) {
+
+			if (bloomb > bloomb1) {
+				lowestbuy = bloomb1;
+
+			}
+		}
+
+		double highestsell = blooms;
+		for (int i = 0; i < bloomberg.size(); i++) {
+			if (blooms < blooms1) {
+				highestsell = blooms1;
+			}
+
+		}
+
+		
+		
+		
+		List<Data> reuters = new ArrayList<>();
+		reuters.add(new Data("000000", 1.020, 1.230));
+		reuters.add(new Data("000001", 1.130, 1.330));
+		reuters.add(new Data("000002", 1.230, 1.110));
+		reuters.add(new Data("000003", 1.030, 1.120));
+		reuters.add(new Data("000004", 1.140, 1.200));
+
+		double reutersb = reuters.get(0).buy;
+		double reutersb1 = reuters.get(1).buy;
+		double reutersb2 = reuters.get(2).buy;
+		double reutersb3 = reuters.get(3).buy;
+		double reutersb4 = reuters.get(4).buy;
+
+		double reuterss = reuters.get(0).sell;
+		double reuterss1 = reuters.get(1).sell;
+		double reuterss2 = reuters.get(2).sell;
+		double reuterss3 = reuters.get(3).sell;
+		double reuterss4 = reuters.get(4).sell;
+
+		double lowestbuy1 = reutersb;
+		for (double i = 0; i < bloomberg.size(); i++) {
+
+			if (reutersb > reutersb1) {
+				lowestbuy1 = reutersb1;
+
+			}
+		}
+
+		double highestsell1 = reuterss;
+		for (int i = 0; i < reuters.size(); i++) {
+			if (reuterss < reuterss1) {
+				highestsell1 = reuterss1;
+			}
+
+		}
+		
+		
+
+		List<Data> ebs = new ArrayList<>();
+		ebs.add(new Data("000000", 1.232, 1.110));
+		ebs.add(new Data("000001", 1.430, 1.180));
+		ebs.add(new Data("000002", 1.270, 1.150));
+		ebs.add(new Data("000003", 1.330, 1.160));
+		ebs.add(new Data("000004", 1.240, 1.080));
+
+		double ebsb = ebs.get(0).buy;
+		double ebsb1 = ebs.get(1).buy;
+		double ebsb2 = ebs.get(2).buy;
+		double ebsb3 = ebs.get(3).buy;
+		double ebsb4 = ebs.get(4).buy;
+
+		double ebss = ebs.get(0).sell;
+		double ebss1 = ebs.get(1).sell;
+		double ebss2 = ebs.get(2).sell;
+		double ebss3 = ebs.get(3).sell;
+		double ebss4 = ebs.get(4).sell;
+
+		double lowestbuy2 = ebsb;
+		for (double i = 0; i < ebs.size(); i++) {
+
+			if (ebsb > ebsb1) {
+				lowestbuy2 = ebsb1;
+
+			}
+		}
+
+		double highestsell2 = ebss;
+		for (int i = 0; i < ebs.size(); i++) {
+			if (ebss < ebss1) {
+				highestsell2 = ebss1;
+			}
+
+		}
+		
+		double highestsellvalue = highestsell;
+		if(highestsell1 > highestsell) {
+			highestsellvalue = highestsell1;
+		}
+		else if(highestsell2>highestsell1) {
+			highestsellvalue = highestsell2;
+		
+		}
+		else {
+			highestsellvalue = highestsell;
+		}
+		
+		
+		double lowestbuyvalue = lowestbuy;
+		if(lowestbuy1 < lowestbuy) {
+			lowestbuyvalue = lowestbuy1;
+		}
+		else if(lowestbuy2<lowestbuy1) {
+			lowestbuyvalue = lowestbuy2;
+		
+		}
+		else {
+			lowestbuyvalue = lowestbuy;
+		}
+		
+		System.out.println(highestsellvalue);
+		System.out.println(lowestbuyvalue);
+		
+	}
+
+}

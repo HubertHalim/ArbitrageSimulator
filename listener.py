@@ -1,7 +1,4 @@
 from socket import *
-import sys
-import os
-import zlib
 
 serverPort = 12000
 serverSocket = socket(AF_INET,SOCK_STREAM)

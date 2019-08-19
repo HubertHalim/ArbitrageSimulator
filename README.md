@@ -14,3 +14,5 @@
 - Expand so that it can include multiple currencies
 - Improve trading strategy to take ttl into account when making trades
 - Improve trading strategy to return multiple currency pairs at a time
+
+ps. a script is included to run the code

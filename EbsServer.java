@@ -21,7 +21,6 @@ public class EbsServer {
     public EbsServer(int port) throws SocketException, IOException {
         this.port = port;
         this.udpSocket = new DatagramSocket(this.port);
-        generateData();
     }
 
     private void listen() throws Exception {
@@ -107,12 +106,13 @@ public class EbsServer {
         return data;
     }
 
-    private void generateData() {
-        ebs = readDataFromCsv("ebs.csv");
+    private void generateData(String file) {
+        ebs = readDataFromCsv(file);
     }
     
     public static void main(String[] args) throws Exception {
         EbsServer client = new EbsServer(8003);
+        client.generateData(args[0]);
         client.listen();
         System.out.println("[" + System.currentTimeMillis() + "]" + " No more data");
     }

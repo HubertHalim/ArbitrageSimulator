@@ -21,7 +21,6 @@ public class ReutersServer {
     public ReutersServer(int port) throws SocketException, IOException {
         this.port = port;
         this.udpSocket = new DatagramSocket(this.port);
-        generateData();
     }
 
     private void listen() throws Exception {
@@ -107,12 +106,13 @@ public class ReutersServer {
         return data;
     }
 
-    private void generateData() {
-        reuters = readDataFromCsv("reu.csv");
+    private void generateData(String file) {
+        reuters = readDataFromCsv(file);
     }
     
     public static void main(String[] args) throws Exception {
         ReutersServer client = new ReutersServer(8002);
+        client.generateData(args[0]);
         client.listen();
         System.out.println("[" + System.currentTimeMillis() + "]" + " No more data");
     }

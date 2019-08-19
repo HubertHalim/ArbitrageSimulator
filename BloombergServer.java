@@ -23,7 +23,6 @@ public class BloombergServer {
     public BloombergServer(int port) throws SocketException, IOException {
         this.port = port;
         this.udpSocket = new DatagramSocket(this.port);
-        generateData();
     }
     private void listen() throws Exception {
         System.out.println("-- Running Bloomberg at " + InetAddress.getLocalHost() + "--");
@@ -108,12 +107,13 @@ public class BloombergServer {
         return data;
     }
 
-    private void generateData() {
-        bloomberg = readDataFromCsv("bbg.csv");
+    private void generateData(String file) {
+        bloomberg = readDataFromCsv(file);
     }
     
     public static void main(String[] args) throws Exception {
         BloombergServer client = new BloombergServer(8001);
+        client.generateData(args[0]);
         client.listen();
         System.out.println("[" + System.currentTimeMillis() + "]" + " No more data");
     }

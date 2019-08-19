@@ -9,6 +9,11 @@
 - Each liquidity provider provides ticker every second and has different ttl for the tickers
 - Client will use a trading strategy to get the liquidity provider to buy and sell from to gain profit
 
+## How to use
+- Comile everything with `javac *.java`
+- Run bloomberg, reuters and ebs first with the command `java <liquidity_provider> <dataset_folder>`
+- Run executor with the command `java Executor`
+
 ## Future improvements
 - Code can be made to adhere better to OOP principles, certain code can still be abstracted out. Liquidity provider servers can have an interface to be implemented from
 - Expand so that it can include multiple currencies
